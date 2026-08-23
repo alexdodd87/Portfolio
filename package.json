@@ -1,0 +1,20 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "My Portfolio Site",
+  "homepage": "https://github.com/alexdodd87/Portfolio#readme",
+  "bugs": {
+    "url": "https://github.com/alexdodd87/Portfolio/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexdodd87/Portfolio.git"
+  },
+  "license": "ISC",
+  "author": "Alex Dodd",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

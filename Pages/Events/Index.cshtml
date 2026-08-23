@@ -1,0 +1,30 @@
+﻿@* @page "/events/{eventId:int:even?}" *@
+
+@* changes url to be nicer *@
+@page "{handler?}"
+@model Portfolio.Pages.Events.IndexModel
+
+<h1>
+    Events: @RouteData.Values[key: "eventId"]
+</h1>
+
+<form method="get" asp-page-handler="Search">
+    <input type="text" name="term" value="@Model.Term" />
+</form>
+
+@if (!string.IsNullOrEmpty(Model.Term))
+{
+    <p>You searched for @Model.Term .</p>
+}
+
+@* <form method="post" asp-page-handler="Search">
+    <input type="text" name="search" />
+</form> *@
+
+@* @page "/events/{category?}/{subcategory?}"
+@model Portfolio.Pages.Events.IndexModel
+
+<h1>
+    Events: @RouteData.Values["category"]
+    |@RouteData.Values["subcategory"]
+</h1> *@

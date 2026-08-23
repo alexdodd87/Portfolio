@@ -1,0 +1,21 @@
+﻿@page
+@model Portfolio.Pages.LoginModel
+
+<form method="post">
+    <div class="mb-3">
+        <label asp-for="Credentials.Email" class="form-label">Email</label>
+        <input type="text" asp-for="Credentials.Email" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label asp-for="Credentials.Password" class="form-label">Password</label>
+        <input type="password" asp-for="Credentials.Password" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary">Login</button>
+</form>
+
+@if (ViewData["Message"] != null)
+{
+    <div class="alert alert-success mt-3" role="alert">
+        @ViewData["Message"]
+    </div>
+}

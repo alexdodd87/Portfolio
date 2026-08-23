@@ -1,0 +1,59 @@
+﻿@page
+@model Portfolio.Pages.RegisterModel
+
+@if (Model.RegistrationSuccessful)
+{
+    <div class="alert alert-success mt-3" role="alert">
+        @ViewData["Message"]
+    </div>
+}
+
+@if (!Model.RegistrationSuccessful)
+{
+    @if (!ModelState.IsValid)
+    {
+        <div asp-validation-summary="All" class="alert alert-danger mt-3" role="alert"></div>
+    }
+
+    <form method="post">
+    <div class="mb-3">
+        <label asp-for="Info.FirstName" class="form-label">First name</label>
+        <input type="text" asp-for="Info.FirstName" class="form-control">
+        <span asp-validation-for="Info.FirstName" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Info.LastName" class="form-label">Last name</label>
+        <input type="text" asp-for="Info.LastName" class="form-control">
+        <span asp-validation-for="Info.LastName" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Info.Email" class="form-label">Email</label>
+        <input type="text" asp-for="Info.Email" class="form-control">
+        <span asp-validation-for="Info.Email" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Info.Password" class="form-label">Password</label>
+        <input type="password" asp-for="Info.Password" class="form-control">
+        <span asp-validation-for="Info.Password" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Info.Password" class="form-label">Confirm password</label>
+        <input type="password" asp-for="Info.ConfirmPassword" class="form-control">
+        <span asp-validation-for="Info.ConfirmPassword" class="text-danger"></span>
+    </div>
+    <div class="form-check">
+        <label for="Seller" class="form-check-label">Seller</label>
+        <input type="radio" asp-for="Info.Role" id="Seller" value="Seller" class="form-check-input">
+    </div>
+    <div class="form-check mb-3">
+        <label for="Buyer" class="form-check-label">Buyer</label>
+        <input type="radio" asp-for="Info.Role" id="Buyer" value="Buyer" class="form-check-input">
+        <div><span asp-validation-for="Info.Role" class="text-danger"></span></div>
+    </div>
+    <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
