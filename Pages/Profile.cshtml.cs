@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Globoticket.Pages
+namespace Portfolio.Pages
 {
     public class ProfileModel : PageModel
     {

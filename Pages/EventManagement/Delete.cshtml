@@ -1,0 +1,42 @@
+﻿@page
+@model Portfolio.Pages.EventManagement.DeleteModel
+
+<h1>Delete event</h1>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">
+            <label asp-for="Event.Title"></label>
+        </dt>
+        <dd class="col-sm-10">
+            <span>@Model.Event.Title</span>
+        </dd>
+        <dt class="col-sm-2">
+            <label asp-for="Event.Venue"></label>
+        </dt>
+        <dd class="col-sm-10">
+            <span>@Model.Event.Venue</span>
+        </dd>
+        <dt class="col-sm-2">
+            <label asp-for="Event.Price"></label>
+        </dt>
+        <dd class="col-sm-10">
+            <span>@Model.Event.Price.ToString("C")</span>
+        </dd>
+        <dt class="col-sm-2">
+            <label asp-for="Event.Date"></label>
+        </dt>
+        <dd class="col-sm-10">
+            <span>@Model.Event.Date.ToString("yyyy'-'MM'-'dd' 'HH':'mm")</span>
+        </dd>
+    </dl>
+</div>
+
+<form method="post">
+    <input type="submit" value="Delete event" class="btn btn-danger mb-3" />
+    <input type="hidden" asp-for="Event.ID" />
+</form>
+
+<div>
+    <a asp-page="./Index">Back to all events</a>
+</div>

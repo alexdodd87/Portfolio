@@ -1,0 +1,53 @@
+﻿@page
+@model Portfolio.Pages.EventManagement.IndexModel
+
+<h1>Events</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <label asp-for="Events[0].Title"></label>
+            </th>
+            <th>
+                <label asp-for="Events[0].Venue"></label>
+            </th>
+            <th>
+                <label asp-for="Events[0].Price"></label>
+            </th>
+            <th>
+                <label asp-for="Events[0].Date"></label>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Events)
+        {
+            <tr>
+                <td>
+                    <p>@item.Title</p>
+                </td>
+                <td>
+                    <p>@item.Venue</p>
+                </td>
+                <td>
+                    <p>@item.Price.ToString("C")</p>
+                </td>
+                <td>
+                    <p>@item.Date.ToString("yyyy'-'MM'-'dd' 'HH':'mm")</p>
+                </td>
+                <td>
+                <!-- asp-route-id appends the ID (route parameter) as a route parameter -->
+                    <a asp-page="./Details" asp-route-id="@item.ID">Details</a> | 
+                    <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    <a asp-page="./Create">Create event</a>
+</div>

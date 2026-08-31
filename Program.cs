@@ -1,6 +1,13 @@
+using Portfolio.Models;
 using Portfolio.Classes;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+
+var connectionString = builder.Configuration.GetConnectionString("PortfolioContext") ?? throw new InvalidOperationException("Connection string 'PortfolioContext' not found.");
+
+builder.Services.AddDbContext<PortfolioContext>(
+    options => options.UseSqlite(connectionString));
 
 // Add services to the container.
 builder.Services.AddRazorPages();

@@ -1,0 +1,46 @@
+﻿@page
+@model Portfolio.Pages.EventManagement.EditModel
+
+<h1>Edit event</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Event.Title" class="control-label"></label>
+                <input asp-for="Event.Title" class="form-control" />
+                <span asp-validation-for="Event.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Event.Venue" class="control-label"></label>
+                <input asp-for="Event.Venue" class="form-control" />
+                <span asp-validation-for="Event.Venue" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Event.Price" class="control-label"></label>
+                <input asp-for="Event.Price" class="form-control" />
+                <span asp-validation-for="Event.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Event.Date" class="control-label"></label>
+                <input asp-for="Event.Date" class="form-control" />
+                <span asp-validation-for="Event.Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Update event" class="btn btn-primary" />
+            </div>
+            <input type="hidden" asp-for="Event.ID" />
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to all events</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

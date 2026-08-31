@@ -25,7 +25,7 @@ namespace Portfolio.Pages
             if (ModelState.IsValid)
             {
                 TempData["Message"] = "Registration successful!";
-                return RedirectToPage();
+                return RedirectToPage("./Login");
             }
 
             return Page();
